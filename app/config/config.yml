@@ -12,6 +12,7 @@ parameters:
     locale: en
 
 framework:
+    translator: ~
     templating:
         engines: ['twig']
     #esi: ~
