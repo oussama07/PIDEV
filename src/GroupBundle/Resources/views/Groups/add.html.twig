@@ -1,0 +1,31 @@
+{% extends 'baseClient.html.twig' %}
+{% block header %}
+
+{% endblock %}
+{% block container %}
+
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="{{ asset('js/test.js') }}"></script>
+
+    <div align="center" style="margin: 0%" >
+
+    {{ form(form) }}
+
+
+
+        <script>
+
+            var element = document.getElementById('groupbundle_groups_nom');
+
+            // Premier événement click
+            element.addEventListener('keypress', function() {
+                alert("Et de un !");
+            });
+
+        </script>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'baseClient.html.twig' %}
+{% block container %}
+{% extends 'baseClient.html.twig' %}
+{% block header %}
+
+{% endblock %}
+
+{% block container %}
+{% endblock %}
+<H2>Liste Groups </H2>
+<table border="1px">
+
+    <tr><th>ID</th> <th>Nom</th> <th>Description</th><th>Modufier</th><th>Supprime</th></tr>
+    {%for c in listG %}
+        <tr>
+            <td>{{ c.id }}</td>
+            <td>{{ c.nom()}}</td>
+            <td>{{ c.description }}</td>
+            <td><a href="#">Modifier</a></td>
+            <td><a href="#">Supprime</a></td>
+        </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

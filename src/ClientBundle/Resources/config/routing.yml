@@ -1,0 +1,8 @@
+EspaceClient:
+    path:     /EspaceClient
+    defaults: { _controller: ClientBundle:Default:index }
+
+EspaceCompte:
+    path:     /EspaceCompte
+    defaults: { _controller: ClientBundle:Default:Compte }
+

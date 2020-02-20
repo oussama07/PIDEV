@@ -1,0 +1,46 @@
+group_homepage:
+    path:     /
+    defaults: { _controller: GroupBundle:Default:index }
+
+GroupAdd:
+    path:     /addgroup
+    defaults: { _controller: GroupBundle:Groups:Add }
+
+GroupList:
+    path:     /listgroup
+    defaults: { _controller: GroupBundle:Groups:List }
+
+GroupFondList:
+    path:     /listGFond
+    defaults: { _controller: GroupBundle:Groups:ListGroupFond }
+
+
+joingroup:
+    path:     /join/{idGroup}
+    defaults: { _controller: GroupBundle:Membre:join }
+
+
+PostList:
+    path:     /listPost/{idG}
+    defaults: { _controller: GroupBundle:Post:List }
+
+
+addChat:
+    path:     /addPost/{idG}
+    defaults: { _controller: GroupBundle:Post:add }
+
+GroupListMembre:
+    path:     /listGoupMembre
+    defaults: { _controller: GroupBundle:Membre:ListGroupMembre }
+
+update:
+    path:     /update/{id}
+    defaults: { _controller: GroupBundle:Groups:update }
+
+Delete:
+    path:     /delete/{id}
+    defaults: { _controller: GroupBundle:Groups:delete }
+
+quitter:
+    path:     /quitter/{id}
+    defaults: { _controller: GroupBundle:Membre:quitter }

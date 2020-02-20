@@ -1,0 +1,28 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" type="text/css" href="{{ asset('css/compte.css') }}">
+
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container2">
+	<div class="row">
+		<div class="alert-group">
+            <div class="alert alert-success alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <strong>Bien fait!</strong> Votre compte est bien créé.
+         
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+    <p>{{ ''|trans({'%username%': user.username}) }}</p>
+    {% if targetUrl %}
+    <p><a href="{{ targetUrl }}">{{ 'Connecté'|trans }}</a></p>
+    {% endif %}
+{% endblock fos_user_content %}
+ <p><a href="/login">{{ 'Connecté'|trans }}</a></p>
+
+   </div>
+        </div>
+    </div>
+</div>

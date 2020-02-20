@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="Dashboard">
+  <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+  <title>login</title>
+  <link href="{{ asset('img/favicon.png') }}" rel="icon">
+  <link href="{{ asset('img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+  <link href="{{ asset('lib/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('lib/font-awesome/css/font-awesome.css') }}" rel="stylesheet" />
+ 
+  <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/style-responsive.css') }}" rel="stylesheet">
+  
+</head>
+
+<body>
+ <div id="login-page">
+    <div class="container">
+    
+      <form class="form-login" action="{{ path("fos_user_security_check") }}" method="post">
+         {% if csrf_token %}
+                 <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                {% endif %}
+        <h2 class="form-login-heading">Se connecter </h2>
+          <div class="login-wrap">
+            
+          <br>
+
+{% trans_default_domain 'FOSUserBundle' %}    
+
+
+
+    <label for="username">{{ 'Nom' |trans }}</label>
+    <input type="text" class="form-control" placeholder="Nom de l'utilisateur"  id="username" name="_username" value="{{ last_username }}" required="required" autocomplete="username"autofocus />
+</br>
+</br>
+    <label for="password">{{ 'Mot de passe'|trans }}</label>
+    <input type="password"class="form-control"  placeholder="Mot de passe "id="password" name="_password" required="required" autocomplete="current-password" />
+
+   {% if error %}
+    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
+ </br>
+</br>
+    <input type="submit" id="_submit" class="btn btn-theme btn-block" name="_submit" value="{{ 'Se connecter '|trans }}" />
+
+</br>
+</br>
+         
+          <div class="registration">
+           Vous n'avez pas encore de compte?<br/>
+            <a class="" href="register">
+              Créer un compte
+              </a>
+          </div>
+        </div>
+     
+      </form>
+    </div>
+  </div>
+  <!-- js placed at the end of the document so the pages load faster -->
+  <script src="{{ asset('lib/jquery/jquery.min.js') }}"></script>
+  <script src="{{ asset('lib/bootstrap/js/bootstrap.min.js') }}"></script>
+  <!--BACKSTRETCH-->
+  <!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
+  <script type="text/javascript" src="{{ asset('lib/jquery.backstretch.min.js') }}"></script>
+  <script>
+    $.backstretch("{{ asset('img/login.jpg') }}", {
+      speed: 500
+    });
+  </script>
+</body>
+
+</html>
+

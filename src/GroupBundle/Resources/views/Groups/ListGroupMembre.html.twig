@@ -1,0 +1,23 @@
+
+{% extends 'baseClient.html.twig' %}
+{% block header %}
+
+{% endblock %}
+
+{% block container %}
+
+    <table border="1px">
+
+        <H2>Liste des Group </H2>
+        <tr><th>ID</th> <th>Nom</th> <th>Description</th>
+        {%for c in list %}
+            <tr>
+                <td>{{ c.id }}</td>
+                <td>{{ c.nom}}</td>
+                <td>{{ c.description }}</td>
+
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

@@ -1,0 +1,56 @@
+
+{% extends 'baseClient.html.twig' %}
+{% block header %}
+
+{% endblock %}
+
+{% block container %}
+    <style>
+        #btn1{
+            border:none;
+            padding:5px 0 5px 0;
+            border-radius:20px;
+            background:rgb(2, 180, 204);
+            font:bold 20px Arial;
+            color:#fff;
+            margin:10px 0px;
+        }
+        .bouton13{
+            border-radius:20px;
+            display: block;
+            text-align: center;
+            color: white;
+        }
+    </style>
+<div  align="center">
+<table  >
+
+    <H2>Liste des Group </H2>
+    <tr> <th>Nom</th> <th>Description</th><th>Modufier</th><th>Supprime</th></tr>
+    {%for c in listG %}
+        <tr>
+
+            <td>{{ c.nom()}}</td>
+            <td class="desc">{{ c.description }}</td>
+            <td  id="btn1"><a href="{{ path('update',{'id':c.id}) }}" class="bouton13">Modifier</a></td>
+            <td  id="btn1"><a href="{{ path('Delete',{'id':c.id}) }}" class="bouton13">Supprime</a></td>
+        </tr>
+    {% endfor %}
+</table>
+</div>
+{% endblock  %}
+{% block Style %}
+<style>
+    table {
+    border-width:0px;
+    border-color:black;
+    width:50%;
+    }
+    td {
+    border-width:px;
+    padding: 10px;
+    border-color:black;
+    width:50%;
+    }
+</style>
+{% endblock  %}

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Hunter's Club - {% block title %} {% endblock %}</title>
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/animate.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/lightbox.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+    <link id="css-preset" href="{{ asset('css/presets/preset1.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/responsive.css') }}" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+    <script src="{{ asset('js/html5shiv.js') }}"></script>
+    <script src="{{ asset('js/respond.min.js') }}"></script>
+    <![endif]-->
+
+    <link href='{{ asset("http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700") }}' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="{{ asset('img/hunters.png') }}">
+</head><!--/head-->
+
+<body>
+
+<!--.preloader-->
+<div class="preloader"> <i class="fa fa-circle-o-notch fa-spin"></i></div>
+<!--/.preloader-->
+
+<header id="home">
+    <div id="home-slider" class="carousel slide carousel-fade" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="item active" style="background-image: url({{ asset('images/slider/img1.jpg') }})">
+                <div class="caption">
+                    <h1 class="animated fadeInLeftBig">Bienvenue sur <span> Hunter's Club!</span></h1>
+                    <p class="animated fadeInRightBig">Le site préféré pour les chasseurs!</p>
+                    <a data-scroll class="btn btn-start animated fadeInUpBig" href="#services">Commencer</a>
+                </div>
+            </div>
+            <div class="item" style="background-image: url({{ asset('images/slider/img2.jpg') }})">
+                <div class="caption">
+                    <h1 class="animated fadeInLeftBig">Vente et Achat  <span>Matériel de chasse!</span></h1>
+                    <p class="animated fadeInRightBig">Retrouvez ici les meilleurs prix possibles sur toutes les matériels de chasse!</p>
+                    <a data-scroll class="btn btn-start animated fadeInUpBig" href="#services">Commencer</a>
+                </div>
+            </div>
+            <div class="item" style="background-image: url({{ asset('images/slider/img3.jpg') }})">
+                <div class="caption">
+                    <h1 class="animated fadeInLeftBig">Participez à notre <span>Forum & Chat</span></h1>
+                    <p class="animated fadeInRightBig">poster des questions,Répondre à des questions et communiquer avec les autres chasseurs </p>
+                    <a data-scroll class="btn btn-start animated fadeInUpBig" href="#services">Commencer</a>
+                </div>
+            </div>
+            <div class="item" style="background-image: url({{ asset('images/slider/img4.jpg') }})">
+                <div class="caption">
+                    <h1 class="animated fadeInLeftBig">Améliorer votre <span>Chasse</span></h1>
+                    <p class="animated fadeInRightBig">Découvrer les informations nécessaire sur votre gibier comme les  </p>
+                    <a data-scroll class="btn btn-start animated fadeInUpBig" href="#services">Commencer</a>
+                </div>
+            </div>
+        </div>
+        <a class="left-control" href="#home-slider" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+        <a class="right-control" href="#home-slider" data-slide="next"><i class="fa fa-angle-right"></i></a>
+
+        <a id="tohash" href="#services"><i class="fa fa-angle-down"></i></a>
+
+    </div><!--/#home-slider-->
+    <div class="main-nav">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">
+                    <h1><img class="img-responsive" src="{{ asset('img/hunters.png') }}" alt="logo"></h1>
+                </a>
+            </div>
+            <div class="collapse navbar-collapse">
+                
+            </div>
+        </div>
+    </div><!--/#main-nav-->
+</header><!--/#home-->
+<section id="services">
+    <div class="container">
+        <div class="heading wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+            <div class="row">
+                <div class="text-center col-sm-8 col-sm-offset-2">
+                    <h2>A propos de nous</h2>
+                    <p>Hunter's Club est une application Web et Mobile permet d’améliorer les journées de chasse de petit et grand gibier, pour tout les chasseurs sur le territoire souhaité</p>
+                </div>
+            </div>
+        </div>
+
+    </div><!-- /#portfolio-single-wrap -->
+</section><!--/#portfolio-->
+
+<section id="team">
+    <div class="container">
+        <div class="row">
+            <div class="heading text-center col-sm-8 col-sm-offset-2 wow fadeInUp" data-wow-duration="1200ms" data-wow-delay="300ms">
+                <h2>Articles </h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam</p>
+            </div>
+        </div>
+        <div class="team-members">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="team-member wow flipInY" data-wow-duration="1000ms" data-wow-delay="300ms">
+                        <div class="member-image">
+                            <img class="img-responsive" src="{{ asset('images/team/1.jpg') }}" alt="">
+                        </div>
+                        <div class="member-info">
+                            <h3>Marian Dixon</h3>
+                            <h4>CEO &amp; Founder</h4>
+                            <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+                        </div>
+                        <div class="social-icons">
+                            <ul>
+                                <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a class="rss" href="#"><i class="fa fa-rss"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="team-member wow flipInY" data-wow-duration="1000ms" data-wow-delay="500ms">
+                        <div class="member-image">
+                            <img class="img-responsive" src="{{ asset('images/team/2.jpg') }}" alt="">
+                        </div>
+                        <div class="member-info">
+                            <h3>Lawrence Lane</h3>
+                            <h4>UI/UX Designer</h4>
+                            <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+                        </div>
+                        <div class="social-icons">
+                            <ul>
+                                <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a class="rss" href="#"><i class="fa fa-rss"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="team-member wow flipInY" data-wow-duration="1000ms" data-wow-delay="800ms">
+                        <div class="member-image">
+                            <img class="img-responsive" src="{{ asset('images/team/3.jpg') }}" alt="">
+                        </div>
+                        <div class="member-info">
+                            <h3>Lois Clark</h3>
+                            <h4>Developer</h4>
+                            <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+                        </div>
+                        <div class="social-icons">
+                            <ul>
+                                <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a class="rss" href="#"><i class="fa fa-rss"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="team-member wow flipInY" data-wow-duration="1000ms" data-wow-delay="1100ms">
+                        <div class="member-image">
+                            <img class="img-responsive" src="{{ asset('images/team/4.jpg') }}" alt="">
+                        </div>
+                        <div class="member-info">
+                            <h3>Marian Dixon</h3>
+                            <h4>Support Manager</h4>
+                            <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+                        </div>
+                        <div class="social-icons">
+                            <ul>
+                                <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a class="rss" href="#"><i class="fa fa-rss"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!--/#team-->
+
+
+
+
+
+
+<footer  id="footer" style="margin-bottom: 0 ">
+    <div class="footer-top wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+        <div class="container text-center">
+            <div class="footer-logo">
+                <a href="index.html"><img class="img-responsive" src="{{ asset('img/hunters.png') }}" alt=""></a>
+            </div>
+            <div class="social-icons">
+                <ul>
+                    <li><a class="envelope" href="#"><i class="fa fa-envelope"></i></a></li>
+                    <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+                    <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a class="tumblr" href="#"><i class="fa fa-tumblr-square"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <p>&copy; 2014 Oxygen Theme.</p>
+                </div>
+                <div class="col-sm-6">
+                    <p class="pull-right">Designed by <a href="http://www.themeum.com/">Dev-it</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<style>
+    #footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: red;
+        color: white;
+        text-align: center;
+    }
+</style>
+
+<script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('http://maps.google.com/maps/api/js?sensor=true') }}"></script>
+<script type="text/javascript" src="{{ asset('js/jquery.inview.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/wow.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/mousescroll.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/smoothscroll.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/jquery.countTo.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/lightbox.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
+
+</body>
+</html>

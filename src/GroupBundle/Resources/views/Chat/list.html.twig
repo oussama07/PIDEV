@@ -1,0 +1,72 @@
+{% extends 'baseClient.html.twig' %}
+{% block container %}
+<H1> Chat group</H1>
+
+{% for ch in ChatG %}
+<div style="border: black 1px solid" align="center" >
+    <p>
+        {{ ch.datePost|date }}
+        <br>
+        {{ ch.Msg }}
+        <br>
+        {{ ch.idM.getUsername() }}
+    </p>
+    <p>
+        {{ ch.datePost|date }}
+        <br>
+        {{ ch.Msg }}
+        <br>
+        {{ ch.idM.getUsername() }}
+    </p>
+    <p>
+        {{ ch.datePost|date }}
+        <br>
+        {{ ch.Msg }}
+        <br>
+        {{ ch.idM.getUsername() }}
+    </p>
+    <p>
+        {{ ch.datePost|date }}
+        <br>
+        {{ ch.Msg }}
+        <br>
+        {{ ch.idM.getUsername() }}
+    </p><p>
+        {{ ch.datePost|date }}
+        <br>
+        {{ ch.Msg }}
+        <br>
+        {{ ch.idM.getUsername() }}
+    </p>
+    <p>
+        {{ ch.datePost|date }}
+        <br>
+        {{ ch.Msg }}
+        <br>
+        {{ ch.idM.getUsername() }}
+    </p>
+    <p>
+        {{ ch.datePost|date }}
+        <br>
+        {{ ch.Msg }}
+        <br>
+        {{ ch.idM.getUsername() }}
+    </p><p>
+        {{ ch.datePost|date }}
+        <br>
+        {{ ch.Msg }}
+        <br>
+        {{ ch.idM.getUsername() }}
+    </p>
+    <p>
+        {{ ch.datePost|date }}
+        <br>
+        {{ ch.Msg }}
+        <br>
+        {{ ch.idM.getUsername() }}
+    </p>
+</div>
+
+{% endfor %}
+
+{% endblock %}

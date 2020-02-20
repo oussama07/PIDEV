@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Hunter's Club - {% block title %} {% endblock %}</title>
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/animate.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/lightbox.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+    <link id="css-preset" href="{{ asset('css/presets/preset1.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/responsive.css') }}" rel="stylesheet">
+
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+    <!--[if lt IE 9]>
+    <script src="{{ asset('js/html5shiv.js') }}"></script>
+    <script src="{{ asset('js/respond.min.js') }}"></script>
+    <![endif]-->
+
+    <link href='{{ asset("http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700") }}' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="{{ asset('img/hunters.png') }}">
+    <style>
+        #footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head><!--/head-->
+
+<body>
+
+<!--.preloader-->
+<div class="preloader"> <i class="fa fa-circle-o-notch fa-spin"></i></div>
+<!--/.preloader-->
+
+<header id="home">
+        {% block header %}
+    <div id="home-slider" class="carousel slide carousel-fade" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="item active" style="background-image: url({{ asset('images/slider/img1.jpg') }})">
+                <div class="caption">
+                    <h1 class="animated fadeInLeftBig">Bienvenue sur <span> Hunter's Club!</span></h1>
+                    <p class="animated fadeInRightBig">Le site préféré pour les chasseurs!</p>
+                    <a data-scroll class="btn btn-start animated fadeInUpBig" href="#services">Commencer</a>
+                </div>
+            </div>
+            <div class="item" style="background-image: url({{ asset('images/slider/img2.jpg') }})">
+                <div class="caption">
+                    <h1 class="animated fadeInLeftBig">Vente et Achat  <span>Matériel de chasse!</span></h1>
+                    <p class="animated fadeInRightBig">Retrouvez ici les meilleurs prix possibles sur toutes les matériels de chasse!</p>
+                    <a data-scroll class="btn btn-start animated fadeInUpBig" href="#services">Commencer</a>
+                </div>
+            </div>
+            <div class="item" style="background-image: url({{ asset('images/slider/img3.jpg') }})">
+                <div class="caption">
+                    <h1 class="animated fadeInLeftBig">Participez à notre <span>Forum & Chat</span></h1>
+                    <p class="animated fadeInRightBig">poster des questions,Répondre à des questions et communiquer avec les autres chasseurs </p>
+                    <a data-scroll class="btn btn-start animated fadeInUpBig" href="#services">Commencer</a>
+                </div>
+            </div>
+            <div class="item" style="background-image: url({{ asset('images/slider/img4.jpg') }})">
+                <div class="caption">
+                    <h1 class="animated fadeInLeftBig">Améliorer votre <span>Chasse</span></h1>
+                    <p class="animated fadeInRightBig">Découvrer les informations nécessaire sur votre gibier comme les  </p>
+                    <a data-scroll class="btn btn-start animated fadeInUpBig" href="{{ path('EspaceClient') }}">Commencer</a>
+                </div>
+            </div>
+        </div>
+        <a class="left-control" href="#home-slider" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+        <a class="right-control" href="#home-slider" data-slide="next"><i class="fa fa-angle-right"></i></a>
+
+        <a id="tohash" href="#services"><i class="fa fa-angle-down"></i></a>
+
+
+
+    </div><!--/#home-slider-->
+    {% endblock %}
+    <div class="main-nav">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html" >
+                    <h1><img class="img-responsive" src="{{ asset('img/hunters.png') }}" alt="logo" style="  max-width: 30%"></h1>
+                </a>
+            </div>
+
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <div class="dropdown">
+                    <a class="dropbtn scroll " href="{{ path('EspaceClient') }}">Acceuil</a>
+                    </div>
+                    <div class="dropdown">
+                        <a class="dropbtn scroll ">Profil</a>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn scroll ">Groups</button>
+                        <div class="dropdown-content">
+                            <a href="{{ path("GroupAdd") }}">Creer Group</a>
+                            <a href="{{ path("GroupList") }}">Consulter Group</a>
+                            <a href="{{ path("GroupFondList") }}">Mon Group</a>
+                            <a href="{{ path("GroupListMembre") }}">Mon Group Membre</a>
+
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn scroll ">Evenement</button>
+                        <div class="dropdown-content">
+                            <a href="#">Link 1</a>
+                            <a href="#">Link 2</a>
+                            <a href="#">Link 3</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn scroll ">Journale</button>
+                        <div class="dropdown-content">
+                            <a href="#">Link 1</a>
+                            <a href="#">Link 2</a>
+                            <a href="#">Link 3</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn scroll ">Article</button>
+                        <div class="dropdown-content">
+                            <a href="#">Link 1</a>
+                            <a href="#">Link 2</a>
+                            <a href="#">Link 3</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn scroll ">Information</button>
+                        <div class="dropdown-content">
+                            <a href="#">Annimal </a>
+                            <a href="#">Lieux </a>
+                            <a href="#">Saision </a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn scroll ">Form</button>
+                    </div>
+
+                    <div class="dropdown" style="float:right;">
+                        <button class="dropbtn scroll "><a class="dropbtn scroll " href="/PIDEV/web/app_dev.php/logout">Logout</a></button>
+                    </div>
+
+
+                </ul>
+            </div>
+        </div>
+    </div><!--/#main-nav-->
+</header>
+<!--/#home-->
+{% block container  %}
+<section id="services">
+    <div class="container">
+        <div class="heading wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+            <div class="row">
+                <div class="text-center col-sm-8 col-sm-offset-2">
+                    <h2>A propos de nous</h2>
+                    <p>Hunter's Club est une application Web et Mobile permet d’améliorer les journées de chasse de petit et grand gibier, pour tout les chasseurs sur le territoire souhaité</p>
+                </div>
+            </div>
+        </div>
+
+    </div><!-- /#portfolio-single-wrap -->
+</section>
+{% endblock %}
+<!--/#portfolio-->
+
+{% block footer %}
+
+
+
+<footer id="footer">
+    <div class="footer-top wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="300ms">
+        <div class="container text-center">
+
+            <div class="social-icons">
+                <ul>
+                    <li><a class="envelope" href="#"><i class="fa fa-envelope"></i></a></li>
+                    <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+                    <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a class="tumblr" href="#"><i class="fa fa-tumblr-square"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <p>&copy; 2014 Oxygen Theme.</p>
+                </div>
+                <div class="col-sm-6">
+                    <p class="pull-right">Designed by <a href="http://www.themeum.com/">Dev-it</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+{% endblock %}
+<script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('http://maps.google.com/maps/api/js?sensor=true') }}"></script>
+<script type="text/javascript" src="{{ asset('js/jquery.inview.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/wow.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/mousescroll.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/smoothscroll.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/jquery.countTo.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/lightbox.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/main.js') }}"></script>
+<style>
+    /* Style The Dropdown Button */
+    .dropbtn {
+        background-color: rgb(2, 143, 204);
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+    }
+
+    /* The container <div> - needed to position the dropdown content */
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    /* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+    /* Links inside the dropdown */
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    /* Change color of dropdown links on hover */
+    .dropdown-content a:hover {background-color: rgb(2, 180, 204);}
+
+    /* Show the dropdown menu on hover */
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    /* Change the background color of the dropdown button when the dropdown content is shown */
+    .dropdown:hover .dropbtn {
+        background-color: rgb(2, 180, 204);
+    }
+</style>
+
+{% block Style %}
+<style>
+    *, *:before, *:after {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Nunito', sans-serif;
+        color: #384047;
+    }
+
+    form {
+        max-width: 300px;
+        margin: 10px auto;
+        padding: 10px 20px;
+        background: #f4f7f8;
+        border-radius: 8px;
+    }
+
+    h1 {
+        margin: 0 0 30px 0;
+        text-align: center;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="date"],
+    input[type="datetime"],
+    input[type="email"],
+    input[type="number"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="time"],
+    input[type="url"],
+    textarea,
+    select {
+        background: rgba(255,255,255,0.1);
+        border: none;
+        font-size: 16px;
+        height: auto;
+        margin: 0;
+        outline: 0;
+        padding: 15px;
+        width: 100%;
+        background-color: #e8eeef;
+        color: #8a97a0;
+        box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+        margin-bottom: 30px;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+        margin: 0 4px 8px 0;
+    }
+
+    select {
+        padding: 6px;
+        height: 32px;
+        border-radius: 2px;
+    }
+
+    input,#groupbundle_groups_Creer{
+        padding: 19px 39px 18px 39px;
+        color: #FFF;
+        background-color: #4bc970;
+        font-size: 18px;
+        text-align: center;
+        font-style: normal;
+        border-radius: 5px;
+        width: 100%;
+        border: 1px solid #3ac162;
+        border-width: 1px 1px 3px;
+        box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+        margin-bottom: 10px;
+    }
+
+    fieldset {
+        margin-bottom: 30px;
+        border: none;
+    }
+
+    legend {
+        font-size: 1.4em;
+        margin-bottom: 10px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    label.light {
+        font-weight: 300;
+        display: inline;
+    }
+
+    .number {
+        background-color: #5fcf80;
+        color: #fff;
+        height: 30px;
+        width: 30px;
+        display: inline-block;
+        font-size: 0.8em;
+        margin-right: 4px;
+        line-height: 30px;
+        text-align: center;
+        text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+        border-radius: 100%;
+    }
+
+    @media screen and (min-width: 480px) {
+
+        form {
+            max-width: 480px;
+        }
+
+    }
+    table {
+        border-width:0px;
+        border-style:solid;
+        border-color:black;
+        width:50%;
+    }
+    td {
+        border-width:px;
+        padding: 10px;
+        border-color:black;
+        width:50%;
+    }
+     button {
+        border:none;
+        padding:5px 0 5px 0;
+        border-radius:8px;
+        background:rgb(2, 180, 204);
+        font:bold 13px Arial;
+        color:#fff;
+    }
+</style>
+{% endblock %}
+</body>
+</html>
