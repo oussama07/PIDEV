@@ -12,7 +12,7 @@ parameters:
     locale: en
 
 framework:
-    translator: ~
+    translator:      { fallbacks: ["%locale%"] }
     templating:
         engines: ['twig']
     #esi: ~
@@ -82,3 +82,8 @@ fos_user:
     from_email:
         address: "oussamamaaroufi07@gmail.com"
         sender_name: "oussama"
+
+gos_web_socket:
+    server:
+        port: 8080        # The port the socket server will listen on
+        host: 127.0.0.1   # The host ip to bind toml"

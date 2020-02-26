@@ -13,6 +13,8 @@
         font:bold 20px Arial;
         color:#fff;
         margin:10px 0px;
+        width: 200px;
+
     }
     .bouton13{
         border-radius:20px;
@@ -23,6 +25,7 @@
 </style>
     <div align="center">
 <H2>Liste Groups </H2>
+        <!--
 <table border="0px" >
 
     <tr><th>Nom</th> <th>Description</th></tr>
@@ -50,5 +53,36 @@
 
     {% endfor %}
 </table>
+-->
+        {%for c in listG %}
+            <a href="{{ path('GroupHome',{'id':c.id}) }}">
+            <div>
+                <span> {{ c.nom()}} :</span>
+                <br>
+                <img src="{{ asset('img/group.png') }}">
+                {% set A = 0 %}
+                    {% for t in listExi  %}
+                        {% if c.idF == id and A == 0 %}
+                           <a href="#" id="btn1" class="bouton13">Votre group</a>
+                            {% set A = 1 %}
+
+                        {%elseif t.id== c.id and A == 0 %}
+                           <a id="btn1" href="{{ path('quitter',{'id':c.id}) }}"   class="bouton13">quitter</a>
+                            {% set A = 1 %}
+                        {% endif %}
+                    {% endfor %}
+
+                    {%if A == 0 %}
+                       <a id="btn1"  href="{{ path('joingroup',{'idGroup':c.id}) }}"  class="bouton13">rejoindre</a>
+                    {% endif %}
+
+                <p>
+                <td>{{ c.description }}</td>
+                </p>
+            </div>
+            </a>
+        {% endfor %}
+
+
     </div>
 {% endblock %}

@@ -12,7 +12,7 @@ class PostController extends Controller
 
     public function  ListAction($idG)
     { $Rep =$this->getDoctrine()->getManager()->getRepository(Chat::class);
-        $ChatG=$Rep->FindChatG($idG);
+        $ChatG=$Rep->FindPostG($idG);
 
         return $this->render('@Group/Post/list.html.twig',array('ChatG' => $ChatG));
 

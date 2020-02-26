@@ -5,8 +5,10 @@ namespace GroupBundle\Controller;
 use AppBundle\Entity\User;
 use GroupBundle\Entity\Groups;
 use GroupBundle\Entity\Membre;
+use GroupBundle\Entity\Post;
 use GroupBundle\Form\GroupsType;
 use GroupBundle\Form\GroupsUpdateType;
+use GroupBundle\Form\PostType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -90,4 +92,39 @@ class GroupsController extends Controller
         return $this->redirectToRoute('GroupFondList');
 
     }
+    public function  ListAdAction(){
+      //    $user = $this->container->get('security.token_storage')->getToken()->getUser();
+      //  $idUser = $user->getId();
+        $Rep =$this->getDoctrine()->getManager()->getRepository(Groups::class);
+        $listgroup=$Rep->findAll();
+       // $Rep =$this->getDoctrine()->getManager()->getRepository(Membre::class);
+       // $list = $Rep->FindGroupMember($idUser);
+        //  var_dump($list);
+
+        return $this->render('@Group/Groups/ListGroupAd.html.twig',array('listG' => $listgroup));
+
+    }
+
+    public function HomeGAction(Request $request,$id){
+        $user = $this->container->get('security.token_storage')->getToken()->getUser();
+        $idUser = $user->getId();
+        $em=  $this->getDoctrine()->getManager();
+        $group = $em->getRepository(Groups::class)->find($id);
+        $List = $em->getRepository(Post::class)->FindPostG($id);
+        $post =new Post();
+        $form =$this->createForm(PostType::class,$post);
+        $form->handleRequest($request);
+        if($form->isSubmitted()){
+            $post->setIdM($user);
+            $post->setIdG($group);
+            $post->setDatePost(new \DateTime());
+            $this->getDoctrine()->getManager()->persist($post);
+            $this->getDoctrine()->getManager()->flush();
+            return $this->redirectToRoute('GroupHome',array("id"=>$id));
+        }
+
+        return $this->render('@Group/Groups/Home.html.twig',array('group'=>$group,'List'=>$List,'form'=>$form->createView()));
+
+    }
+
 }

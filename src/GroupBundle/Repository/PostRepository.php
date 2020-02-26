@@ -11,9 +11,9 @@ namespace GroupBundle\Repository;
 class PostRepository extends \Doctrine\ORM\EntityRepository
 {
 
-    public function  FindChatG($idG){
+    public function  FindPostG($idG){
         $qb=$this->getEntityManager()
-            ->createQuery("select g from GroupBundle:Chat g where g.idG=?1 ")
+            ->createQuery("select g from GroupBundle:Post g where g.idG=?1 order By g.id DESC  ")
             ->setParameters(array(1=>$idG));
         return $qb->getResult();
     }

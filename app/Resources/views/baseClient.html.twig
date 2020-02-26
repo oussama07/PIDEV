@@ -28,10 +28,12 @@
     <link rel="shortcut icon" href="{{ asset('img/hunters.png') }}">
     <style>
         #footer {
+
             position: fixed;
             left: 0;
             bottom: 0;
             width: 100%;
+           height: auto%;
             color: white;
             text-align: center;
         }
@@ -44,7 +46,7 @@
 <div class="preloader"> <i class="fa fa-circle-o-notch fa-spin"></i></div>
 <!--/.preloader-->
 
-<header id="home">
+<header id="home" >
         {% block header %}
     <div id="home-slider" class="carousel slide carousel-fade" data-ride="carousel">
         <div class="carousel-inner">
@@ -86,7 +88,7 @@
 
     </div><!--/#home-slider-->
     {% endblock %}
-    <div class="main-nav">
+    <div class="main-nav" >
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -100,7 +102,7 @@
                 </a>
             </div>
 
-            <div class="collapse navbar-collapse">
+            <div class="collapse navbar-collapse" >
                 <ul class="nav navbar-nav navbar-right">
                     <div class="dropdown">
                     <a class="dropbtn scroll " href="{{ path('EspaceClient') }}">Acceuil</a>
@@ -165,6 +167,7 @@
     </div><!--/#main-nav-->
 </header>
 <!--/#home-->
+<div style="margin-bottom: 10%;">
 {% block container  %}
 <section id="services">
     <div class="container">
@@ -180,6 +183,7 @@
     </div><!-- /#portfolio-single-wrap -->
 </section>
 {% endblock %}
+</div>
 <!--/#portfolio-->
 
 {% block footer %}
@@ -207,7 +211,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    <p>&copy; 2014 Oxygen Theme.</p>
+                    <p>&copy; Hunter's Club.</p>
                 </div>
                 <div class="col-sm-6">
                     <p class="pull-right">Designed by <a href="http://www.themeum.com/">Dev-it</a></p>

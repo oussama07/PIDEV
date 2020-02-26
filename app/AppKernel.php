@@ -21,12 +21,8 @@ class AppKernel extends Kernel
             new AdminBundle\AdminBundle(),
             new ClientBundle\ClientBundle(),
             new GroupBundle\GroupBundle(),
-            new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
-            new Symfony\Bundle\AsseticBundle\AsseticBundle(),
-            new Mgilet\NotificationBundle\MgiletNotificationBundle(),
             new Gos\Bundle\WebSocketBundle\GosWebSocketBundle(), //bundle websockets for chat
             new Gos\Bundle\PubSubRouterBundle\GosPubSubRouterBundle(), //bundle websockets for chat
-            new Kijho\ChatBundle\ChatBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

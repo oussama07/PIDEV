@@ -1,0 +1,91 @@
+{% extends 'baseClient.html.twig' %}
+{% block title %}
+    {{ group.nom }}
+{% endblock %}
+{% block header %}
+
+{% endblock %}
+
+{% block container %}
+<header style="top: 0;" >
+    <nav style=" height: 100% ; width:20%  ;float: left; border-right: black solid 1px">
+        <ul>{{ group.nom }}
+            <div class="">
+                <li>   <a href="{{ path("GroupAdd") }}">Members</a></li>
+                <li>   <a href="{{ path("GroupList") }}">administrateur</a></li>
+                <li> <a href="{{ path("GroupFondList") }}">description</a></li>
+                <!--  <li><a href="{{ path("GroupListMembre") }}">Mon Group Membre</a></li>-->
+            </div>
+        </ul>
+    </nav>
+
+    <div style="position: relative ;  float: right; width: 80% ;height: 100%">
+    <img src="{{ asset('img/covGroup.png') }}" style="height: 80%">
+    </div>
+</header>
+
+    <br>
+    <section style="alignment: center; margin: 20% ;border-left: black solid 1px""  >
+        <div class="post">
+
+            {{ form(form) }}
+
+            {% for p in List %}
+            <p>
+
+
+                <div class="container body-content"  style="border: 1px solid black; display :block ;
+                  width: 77% ;padding:0 7% ;background:#f4f7f8;border-radius: 8px;">
+
+                    <div class="container" style="padding: auto;">
+
+                        <div class="row justify-content-start" style="padding-top:10px;">
+
+                            <div class="col" style="padding-top:10px;">
+                                <img src="{{ asset('img/group.png') }}" style="width: 50px ; height: 50px">{{ p.idM.getUsername() }}
+                                      <p style="font-size: 7px">{{p.datePost | date}}</p>
+
+                            </div>
+                            <div class="col" style="padding-top:10px;">
+                                <label> </label>
+
+
+
+                            </div>
+                        </div>
+                        <div class="row justify-content-body" style="padding-top:10px; padding-left: 10%">
+                <p class="text-black-20">
+                {{ p.Msg }}
+                </p>
+                </div>
+                <div class="row justify-content-center" style="padding-top:10px;">
+
+                </div>
+                <div class="row justify-content-end" style="padding-top:10px;">
+                    <label></label>
+
+                </div>
+                </div>
+                </div>
+            </p>
+            {% endfor %}
+
+        </div>
+    </section>
+    <style>
+        .post{
+            float: right;
+            border-bottom: 0;
+            border-top: 0;
+            height: 110%;
+            width: 70%;
+            margin-bottom: 30%;
+            padding: 10px;
+        }
+        #groupbundle_post_  {
+            float: right;
+            background-color: black;s
+        }
+    </style>
+
+{% endblock%}

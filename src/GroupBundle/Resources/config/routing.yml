@@ -44,3 +44,11 @@ Delete:
 quitter:
     path:     /quitter/{id}
     defaults: { _controller: GroupBundle:Membre:quitter }
+
+GroupListAd:
+    path:     /listgroupAd
+    defaults: { _controller: GroupBundle:Groups:ListAd }
+
+GroupHome:
+    path:     /HomeG/{id}
+    defaults: { _controller: GroupBundle:Groups:HomeG }
