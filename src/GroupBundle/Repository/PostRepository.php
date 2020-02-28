@@ -17,4 +17,19 @@ class PostRepository extends \Doctrine\ORM\EntityRepository
             ->setParameters(array(1=>$idG));
         return $qb->getResult();
     }
+
+
+    public function AddLike($id){
+        $qb = $this->getEntityManager()->createQuery("update GroupBundle:Post p set p.nbLike =p.nbLike+1 where p.id=?1 ")
+            ->setParameters(array(1=>$id));
+        return $qb->getResult();
+    }
+
+
+    public function UnLike($id){
+        $qb = $this->getEntityManager()->createQuery("update GroupBundle:Post p set p.nbLike =p.nbLike-1 where p.id=?1 ")
+            ->setParameters(array(1=>$id));
+        return $qb->getResult();
+    }
+
 }

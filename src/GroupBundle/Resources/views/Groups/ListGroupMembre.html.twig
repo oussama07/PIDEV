@@ -20,6 +20,7 @@
 
         }
     </style>
+    <center>
 <div style="align:center">
 
     <table border="1px" >
@@ -27,14 +28,16 @@
         <H2>Liste des Group </H2>
         <tr> <th>Nom</th> <th>Description</th>
         {%for c in list %}
-            <tr>
+        <tr>
 
-                <td>{{ c.nom}}</td>
+                <td>
+                    <a style="display: block" href="{{ path('GroupHome',{'id': c.id}) }}">{{ c.nom}}</a></td>
                 <td>{{ c.description }}</td>
 
             </tr>
+
         {% endfor %}
     </table>
 </div>
-
+    </center>
 {% endblock %}

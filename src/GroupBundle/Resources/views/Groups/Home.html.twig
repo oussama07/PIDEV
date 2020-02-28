@@ -9,24 +9,42 @@
 {% block container %}
 <header style="top: 0;" >
     <nav style=" height: 100% ; width:20%  ;float: left; border-right: black solid 1px">
-        <ul>{{ group.nom }}
-            <div class="">
-                <li>   <a href="{{ path("GroupAdd") }}">Members</a></li>
-                <li>   <a href="{{ path("GroupList") }}">administrateur</a></li>
-                <li> <a href="{{ path("GroupFondList") }}">description</a></li>
-                <!--  <li><a href="{{ path("GroupListMembre") }}">Mon Group Membre</a></li>-->
+        <div class="dropdown">
+            <button class="dropbtn scroll ">Notification    </button>
+            <div class="dropdown-content">
+             {% for M in Mem %}
+                <a>
+                    {{ mgilet_notification_render(M) }}
+
+                </a>
+                {% endfor %}
             </div>
+
+        </div>
+
+        <ul>
+            <li>Nom : {{ group.nom }} </li>
+            <li>Description : {{ group.description }} </li>
+            <!--  <div class="">
+                  <li>   <a href="{{ path("GroupAdd") }}">Members</a></li>
+                  <li>   <a href="{{ path("GroupList") }}">administrateur</a></li>
+                  <li> <a href="{{ path("GroupFondList") }}">description</a></li>
+
+                    <li><a href="{{ path("GroupListMembre") }}">Mon Group Membre</a></li>
+
+
+              </div> -->
         </ul>
     </nav>
 
-    <div style="position: relative ;  float: right; width: 80% ;height: 100%">
-    <img src="{{ asset('img/covGroup.png') }}" style="height: 80%">
+    <div style="position: relative ;  float: right; width: 80% ;">
+    <img src="{{ asset('img/covGroup.png') }}" style="height: auto">
     </div>
 </header>
 
     <br>
     <section style="alignment: center; margin: 20% ;border-left: black solid 1px""  >
-        <div class="post">
+        <div class="post" style="border-left: black solid 1px">
 
             {{ form(form) }}
 
@@ -42,7 +60,7 @@
                         <div class="row justify-content-start" style="padding-top:10px;">
 
                             <div class="col" style="padding-top:10px;">
-                                <img src="{{ asset('img/group.png') }}" style="width: 50px ; height: 50px">{{ p.idM.getUsername() }}
+                                <img src="{{ asset('img/group.png') }}" style="width: 50px ; height: 50px" >{{ p.idM.getUsername() }}
                                       <p style="font-size: 7px">{{p.datePost | date}}</p>
 
                             </div>
@@ -61,8 +79,26 @@
                 <div class="row justify-content-center" style="padding-top:10px;">
 
                 </div>
-                <div class="row justify-content-end" style="padding-top:10px;">
-                    <label></label>
+                <div class="row justify-content-end" style="padding-top:10px; ">
+
+                    <div >
+                        {% set A = 1 %}
+                        {% for L in likes %}
+                            {% if L.idU.getId() == idU and L.idP.getId()==p.id and A == 1 %}
+                        <a href="{{ path('UnLike',{'id':p.id,'idG':group.id}) }}"  style="display: block">
+                            <img  id="sup" src="{{ asset('Like.svg.png') }}" width="40px" height="40px" id="like" onclick="Like()">
+                        </a>
+                                {% set A = 0 %}
+                            {% endif %}
+                        {% endfor %}
+                        {% if A == 1 %}
+                            <a href="{{ path('Like',{'id':p.id,'idG':group.id}) }}"  style="display: block">
+                                <img  id="sup" src="{{ asset('unLike.png') }}" width="40px" height="40px" id="like" onclick="Like()">
+                            </a>
+                        {% endif %}
+                        <p style="margin: 0px 40px "> {{ p.nbLike  }} Likes</p>
+                    </div>
+
 
                 </div>
                 </div>
@@ -73,19 +109,29 @@
         </div>
     </section>
     <style>
-        .post{
-            float: right;
-            border-bottom: 0;
-            border-top: 0;
-            height: 110%;
-            width: 70%;
-            margin-bottom: 30%;
-            padding: 10px;
+        #sup{
+            width: 30px;
+            height: 30px ;
         }
+        #sup:hover{
+            width: 35px;
+            height: 35px ;
+        }
+
         #groupbundle_post_  {
             float: right;
             background-color: black;s
         }
+       
     </style>
+    <script >
+        function Like() {
+           obj= document.getElementById("id");
+
+           obj.setAttributeNode(width : "50px");
+           obj.setAttributeNode( height : "50px")
+        }
+        
+    </script>
 
 {% endblock%}

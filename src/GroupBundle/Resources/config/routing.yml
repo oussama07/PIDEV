@@ -52,3 +52,13 @@ GroupListAd:
 GroupHome:
     path:     /HomeG/{id}
     defaults: { _controller: GroupBundle:Groups:HomeG }
+
+
+Like:
+    path:     /Like/{id}/{idG}
+    defaults: { _controller: GroupBundle:Groups:LikeP }
+
+
+UnLike:
+    path:     /UnLike/{id}/{idG}
+    defaults: { _controller: GroupBundle:Groups:UnLike }

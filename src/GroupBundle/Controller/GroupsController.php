@@ -4,6 +4,7 @@ namespace GroupBundle\Controller;
 
 use AppBundle\Entity\User;
 use GroupBundle\Entity\Groups;
+use GroupBundle\Entity\Likes;
 use GroupBundle\Entity\Membre;
 use GroupBundle\Entity\Post;
 use GroupBundle\Form\GroupsType;
@@ -37,12 +38,20 @@ class GroupsController extends Controller
             $em->persist($membre);
             $em->flush();
             return $this->redirectToRoute('GroupList');
-
-
-
         }else{
             return $this->render('@Group/Groups/add.html.twig',array('form'=>$form->createView()));
         }
+    }
+
+    /**
+     * @Route("/send-notification", name="send_notification")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function sendNotification(Request $request)
+    {
+
+        return $this->redirectToRoute('homepage');
     }
 
     public function  ListAction(){
@@ -114,17 +123,64 @@ class GroupsController extends Controller
         $post =new Post();
         $form =$this->createForm(PostType::class,$post);
         $form->handleRequest($request);
+        $Mem= $em->getRepository(Membre::class)->findBy(array("idG"=>$id));
+        $likes = $em->getRepository(Likes::class)->findBy(array("idU"=>$idUser));
         if($form->isSubmitted()){
             $post->setIdM($user);
             $post->setIdG($group);
             $post->setDatePost(new \DateTime());
+            $post->setNbLike(0);
             $this->getDoctrine()->getManager()->persist($post);
             $this->getDoctrine()->getManager()->flush();
-            return $this->redirectToRoute('GroupHome',array("id"=>$id));
+
+            $manager = $this->get('mgilet.notification');
+            $notif = $manager->createNotification('Nouveau Post dons le group'.$group->getNom(),'Membre Post '.$user->getUsername(),'http://google.fr');
+            // you can add a notification to a list of entities
+            // the third parameter ``$flush`` allows you to directly flush the entities
+                $manager->addNotification(array($Mem), $notif, true);
+            $em->flush();
+            var_dump($Mem);
+            return $this->redirectToRoute('GroupHome',array("id"=>$id,"Mem"=>$Mem,'likes'=>$likes,"idU"=>$idUser));
         }
 
-        return $this->render('@Group/Groups/Home.html.twig',array('group'=>$group,'List'=>$List,'form'=>$form->createView()));
+        return $this->render('@Group/Groups/Home.html.twig',
+            array('group'=>$group,'List'=>$List,'form'=>$form->createView(),"Mem"=>$Mem,'likes'=>$likes,"idU"=>$idUser));
 
     }
+
+
+    public function LikePAction($id,$idG){
+        $user = $this->container->get('security.token_storage')->getToken()->getUser();
+        $idUser = $user->getId();
+
+        $em=  $this->getDoctrine()->getManager();
+        $post = $em->getRepository(Post::class)->find($id);
+
+            $likes =new Likes();
+            $likes->setIdP($post);
+            $likes->setIdU($user);
+            $em->persist($likes);
+            $em->getRepository(Post::class)->AddLike($id);
+            $em->flush();
+        return $this->redirectToRoute('GroupHome',array('id'=>$idG));
+
+    }
+        public function UnLikeAction($id,$idG){
+        $user = $this->container->get('security.token_storage')->getToken()->getUser();
+        $idUser = $user->getId();
+
+        $em = $this->getDoctrine()->getManager();
+        $Like = $em->getRepository(Likes::class)->findOneBy(array("idU"=>$idUser,"idP"=>$id));
+      //  var_dump($Like);
+        $em->remove($Like);
+        $em->getRepository(Post::class)->UnLike($id);
+        $em->flush();
+
+
+        return $this->redirectToRoute('GroupHome',array('id'=>$idG));
+
+    }
+
+
 
 }

@@ -131,6 +131,31 @@ class Post
         $this->Msg = $Msg;
     }
 
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="nblik", type="integer")
+     */
+    private $nbLike;
+
+    /**
+     * @return int
+     */
+    public function getNbLike()
+    {
+        return $this->nbLike;
+    }
+
+    /**
+     * @param int $nbLike
+     */
+    public function setNbLike($nbLike)
+    {
+        $this->nbLike = $nbLike;
+    }
+
+
+
 
 
 }

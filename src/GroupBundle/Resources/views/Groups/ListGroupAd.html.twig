@@ -16,6 +16,14 @@
             text-align: center;
             color: white;
         }
+        #sup{
+            width: 30px;
+            height: 30px ;
+        }
+        #sup:hover{
+            width: 35px;
+            height: 35px ;
+        }
     </style>
     <div  align="center">
         <table  >
@@ -25,10 +33,10 @@
             {%for c in listG %}
                 <tr >
 
-                    <td>{{ c.nom()}}</td>
+                    <td><a style="display: block" href="{{ path('GroupHome',{'id': c.id}) }}">{{ c.nom()}}</a></td>
                     <td class="desc">{{ c.description }}</td>
 
-                    <td  id="btn1"><a href="{{ path('Delete',{'id':c.id}) }}" class="bouton13">Bloquer</a></td>
+                    <td  ><a href="{{ path('Delete',{'id':c.id}) }}" ><img src="{{ asset('Sup.png') }}" id="sup"> </a></td>
                 </tr>
             {% endfor %}
         </table>
@@ -49,5 +57,7 @@
             margin: 10px;
 
         }
+
+
     </style>
 {% endblock %}

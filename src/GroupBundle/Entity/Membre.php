@@ -3,14 +3,17 @@
 namespace GroupBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Mgilet\NotificationBundle\Annotation\Notifiable;
+use Mgilet\NotificationBundle\NotifiableInterface;
 
 /**
  * Membre
  *
  * @ORM\Table(name="membre")
  * @ORM\Entity(repositoryClass="GroupBundle\Repository\MembreRepository")
+ * @Notifiable(name="Membre")
  */
-class Membre
+class Membre  implements NotifiableInterface
 {
     /**
      * @var int
