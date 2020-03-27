@@ -137,9 +137,9 @@ class GroupsController extends Controller
             $notif = $manager->createNotification('Nouveau Post dons le group'.$group->getNom(),'Membre Post '.$user->getUsername(),'http://google.fr');
             // you can add a notification to a list of entities
             // the third parameter ``$flush`` allows you to directly flush the entities
-                $manager->addNotification(array($Mem), $notif, true);
+                $manager->addNotification(array($group), $notif, true);
             $em->flush();
-            var_dump($Mem);
+         //   var_dump($Mem);
             return $this->redirectToRoute('GroupHome',array("id"=>$id,"Mem"=>$Mem,'likes'=>$likes,"idU"=>$idUser));
         }
 
