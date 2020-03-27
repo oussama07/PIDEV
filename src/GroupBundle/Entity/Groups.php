@@ -45,7 +45,21 @@ class Groups implements NotifiableInterface
      * @ORM\Column(name="description", type="string", length=255)
      */
     private $description;
+    /**
+     *
+     * @var  int
+     *
+     * @ORM\Column(name="Enabled", type="integer")
+     */
+    private $Enabled;
 
+    /**
+     * Groups constructor.
+     */
+    public function __construct()
+    {
+        $this->Enabled=1;
+    }
 
     /**
      * Get id
@@ -72,9 +86,6 @@ class Groups implements NotifiableInterface
     {
         $this->idF = $idF;
     }
-
-
-
 
 
     /**
@@ -123,6 +134,22 @@ class Groups implements NotifiableInterface
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * @return int
+     */
+    public function getEnabled()
+    {
+        return $this->Enabled;
+    }
+
+    /**
+     * @param int $Enabled
+     */
+    public function setEnabled($Enabled)
+    {
+        $this->Enabled = $Enabled;
     }
 
 
